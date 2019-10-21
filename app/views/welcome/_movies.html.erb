@@ -1,0 +1,23 @@
+<div class="row align-items-start">
+  <div class="col-12">
+    <h4>Popular Movies</h4>
+  </div>
+</div>
+<div class="row ft-row pop-mov">
+  <div class="col-sm-3 img_wrap">
+    <img src="http://image.tmdb.org/t/p/w154<%= @popular_movies[1]["poster_path"] %>"/>
+    <span class="title"><%= @popular_movies[1]['title'] %></span>
+  </div>
+  <div class="col-sm-3 img_wrap">
+    <img src="http://image.tmdb.org/t/p/w154<%= @popular_movies[2]["poster_path"] %>"/>
+    <span class="title"><%= @popular_movies[2]['title'] %></span>
+  </div>
+  <div class="col-sm-3 img_wrap">
+    <img src="http://image.tmdb.org/t/p/w154<%= @popular_movies[3]["poster_path"] %>"/>
+    <span class="title"><%= @popular_movies[3]['title'] %></span>
+  </div>
+  <div class="col-sm-3 img_wrap">
+    <img src="http://image.tmdb.org/t/p/w154<%= @popular_movies[4]["poster_path"] %>"/>
+    <span class="title"><%= @popular_movies[4]['title'] %></span>
+  </div>
+</div>

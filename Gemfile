@@ -37,9 +37,18 @@ gem 'bootstrap', '~> 4.3.1'
 #For calling the APIs
 gem 'excon'
 
+#For hiding the API_KEY!
+gem 'figaro'
+
+#A ruby wrapper for TMDB API.
+gem 'themoviedb-api'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
+  gem 'rails-controller-testing', '~> 0.0.3'
 end
 
 group :development do
