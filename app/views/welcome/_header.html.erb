@@ -6,14 +6,21 @@
   <div class="col-md-7 offset-md-3 right">
 
 <!-- Search Bar -->
+    <!-- html -->
+    <!-- <input type="text" placeholder="Search.."> -->
     <div class="">
-      <%= form_with(url: "/search", method: "get") do %>
+      <%= form_with url: "/search", method: :get do %>
+
         <div class="form-group">
-          <%= label_tag(:search_bar, "Search for any Movie, TV Show, or Actor") %>
-          <%= text_field_tag(:search_bar) %>
+          <%= label_tag :search, ("Search for any Movie, TV Show, or Actor") %>
+          <%= text_field_tag :search %>
         </div>
-        <%= button_tag 'Search', class: 'btn btn-search' %>
+
+        <%= submit_tag 'Search', :name => nil, class: 'btn btn-search' %>
+
       <% end %>
+
     </div>
+
   </div>
 </header>

@@ -3,11 +3,6 @@ require 'excon'
 
 class WelcomeController < ApplicationController
   def index
-
-    # response = Excon.get("https://api.themoviedb.org/3/search/multi?api_key=#{api_key}&language=en-US&query=")
-    # @search_bar = JSON.parse(response.body)
-
-
     response = Excon.get("https://api.themoviedb.org/3/trending/person/day?api_key=#{api_key}")
     @trending_actor = JSON.parse(response.body)['results']
 
@@ -21,10 +16,18 @@ class WelcomeController < ApplicationController
     @TR_tv_shows = JSON.parse(response.body)['results']
   end
 
+  def search
+    puts params
+    query = params["search_bar"]
+    response = Excon.get("https://api.themoviedb.org/3/search/multi?api_key=#{api_key}&language=en-US&query=#{query}")
+    @data = JSON.parse(response.body)
+  end
+
 
   private
   def api_key
     ENV['the_moviedb_api_key']
   end
+
 
 end
