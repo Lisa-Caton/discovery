@@ -4,23 +4,12 @@
     <h3>Discovery</h3>
   </div>
   <div class="col-md-7 offset-md-3 right">
-
-<!-- Search Bar -->
-    <!-- html -->
-    <!-- <input type="text" placeholder="Search.."> -->
-    <div class="">
-      <%= form_with url: "/search", local: true, method: :get  do %>
-
-        <div class="form-group">
-          <%= label_tag :search_this_item, ("Search for any Movie, TV Show, or Actor") %>
-          <%= text_field_tag :search_this_item, nil, required: true  %>
-        </div>
-
-        <%= submit_tag 'Search', :name => nil, class: 'btn btn-search' %>
-
-      <% end %>
-
-    </div>
-
+    <%= form_with url: "/search", local: true, method: :get  do %>
+      <div class="form-group">
+        <%= label_tag :search_this_item, ("Search for any Movie, TV Show, or Actor") %>
+        <%= text_field_tag :search_this_item, nil, required: true  %>
+      </div>
+      <%= submit_tag 'Search', :name => nil, id: 'submit', class: 'btn btn-search' %>
+    <% end %>
   </div>
 </header>
