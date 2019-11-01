@@ -15,14 +15,9 @@ class WelcomeController < ApplicationController
   end
 
   def search
-    # puts "Here are the params: #{params}"
-      query = params["search_this_item"]
-      response = Excon.get("https://api.themoviedb.org/3/search/multi?api_key=#{api_key}&language=en-US&query=#{query}")
-      # puts "Here is the response: #{response}"
+      @query = params[:search_this_item].downcase
+      response = Excon.get("https://api.themoviedb.org/3/search/multi?api_key=#{api_key}&language=en-US&query=#{@query}")
       @search_data = JSON.parse(response.body)
-      # respond_to do |format|
-      #   format.any { render template: "welcome/search" }
-      # end
   end
 
 

@@ -1,1 +1,54 @@
-<%= @search_data %>
+<div id="search_page" class="row">
+  <div class="search_param m-3 pb-3">
+    <span class="search_copy mt-3 mx-auto">Search <span class="search_key"> <%= @query.capitalize %></span></span>
+  </div>
+
+
+  <% @search_data['results'].each do |movie| %>
+    <div class="col-sm-6">
+      <div class="search_container mx-auto shadow p-3 mb-5 bg-white">
+
+        <div class="left">
+          <!-- Fullfills: -->
+          <!-- 1. Has movie title 2. Backdrop is nil 3. Poster is nil -->
+          <% if movie["media_type"] = "movie" %>
+            <% if movie['poster_path'].nil? %>
+              <img src="http://image.tmdb.org/t/p/w300<%= movie['backdrop_path'] %>"/>
+            <% else %>
+              <img src="http://image.tmdb.org/t/p/w154<%= movie['poster_path'] %>"/>
+            <% end %>
+          <% end %>
+          <% if movie["media_type"] = "name" %>
+
+              <img src="http://image.tmdb.org/t/p/w154<%= movie['poster_path'] %>"/>
+
+          <% end %>
+
+
+        </div><!--/left-->
+
+        <div class="right pl-1">
+          <div class="top">
+            <% if movie['title'].nil? %>
+              <span class="search_title font-weight-bold"><%= movie['name'] %></span><br>
+              <span class="search_title font-weight-bold">Known For:<%= movie['known_for'] %></span>
+            <% else %>
+              <span class="search_title font-weight-bold"><%= movie['title'] %></span>
+            <% end %>
+            <br>
+            <span class="search_rel_date"><%= movie['release_date'] %></span>
+            <br>
+            <span class="search_md_type">Media Type: <%= movie['media_type'].capitalize %></span>
+            <br>
+            <span class="search_vt_avg">Vote Average: <%= movie['vote_average'] %></span>
+          </div><!--/top-->
+          <div class="bottom">
+            <%= movie['overview'] %>
+          </div><!--/bottom-->
+        </div><!--/right-->
+
+      </div><!--/search_container-->
+    </div><!--/col-sm-3-->
+  <% end %>
+
+</div><!--/row-->

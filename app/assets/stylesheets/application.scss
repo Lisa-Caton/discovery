@@ -166,15 +166,42 @@ img[alt] {
   }
 }
 
-.search_container {
-
-  .top_info {
-    .poster img {}
-    .mdl-info {}
+#search_page {
+  .search_param {
+    display: block;
+    width: 98%;
   }
 
-  .btm-info {
-    .search_overview {}
+  .search_copy {
+    display: block;
+    font-size: 1.5em;
+    text-align: left;
   }
 
+  .search_key:before {
+    color: grey;
+    content: '>';
+    font-weight: 700;
+  }
+
+  .left,
+  .right {
+    display: inline-block;
+  }
+
+  .left {vertical-align: top;}
+
+  .right {
+    width: 300px;
+
+    .bottom {
+    display: -webkit-box;
+    font-size:12px;
+    height: 73px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    }
+  }
 }
