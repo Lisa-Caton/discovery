@@ -1,0 +1,45 @@
+<div class="ft1">
+  <div class="row align-items-start">
+    <div class="col-12">
+      <h4>Popular | Movies</h4>
+    </div>
+  </div>
+  <div class="row ft-row pop-mov">
+    <div class="col-sm-3 img_wrap">
+      <a href="https://www.themoviedb.org/movie/<%= @popular_movies[0]['id'] %>">
+        <img src="http://image.tmdb.org/t/p/w154<%= @popular_movies[0]["poster_path"] %>"/>
+        <span class="title_cover">
+          <%= @popular_movies[0]['title'] %>
+          <span class="italic">Release Date:<br><%= @popular_movies[0]['release_date'] %></span>
+        </span>
+      </a>
+    </div>
+    <div class="col-sm-3 img_wrap">
+      <a href="https://www.themoviedb.org/movie/<%= @popular_movies[1]['id'] %>">
+        <img src="http://image.tmdb.org/t/p/w154<%= @popular_movies[1]["poster_path"] %>"/>
+        <span class="title_cover">
+          <%= @popular_movies[1]['title'] %>
+          <span class="italic">Release Date:<br><%= @popular_movies[1]['release_date'] %></span>
+        </span>
+      </a>
+    </div>
+    <div class="col-sm-3 img_wrap">
+      <a href="https://www.themoviedb.org/movie/<%= @popular_movies[2]['id'] %>">
+        <img src="http://image.tmdb.org/t/p/w154<%= @popular_movies[2]["poster_path"] %>"/>
+        <span class="title_cover">
+          <%= @popular_movies[2]['title'] %>
+          <span class="italic">Release Date:<br><%= @popular_movies[2]['release_date'] %></span>
+        </span>
+      </a>
+    </div>
+    <div class="col-sm-3 img_wrap">
+      <a href="https://www.themoviedb.org/movie/<%= @popular_movies[3]['id'] %>">
+        <img src="http://image.tmdb.org/t/p/w154<%= @popular_movies[3]["poster_path"] %>"/>
+        <span class="title_cover">
+          <%= @popular_movies[3]['title'] %>
+          <span class="italic">Release Date:<br><%= @popular_movies[3]['release_date'] %></span>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

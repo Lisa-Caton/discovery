@@ -1,54 +1,62 @@
-<div id="search_page" class="row">
-  <div class="search_param m-3 pb-3">
-    <span class="search_copy mt-3 mx-auto">Search <span class="search_key"> <%= @query.capitalize %></span></span>
-  </div>
-
-
-  <% @search_data['results'].each do |movie| %>
-    <div class="col-sm-6">
+<div class="row">
+  <div id="search_page" class="shadow">
+    <div class="search_param m-3 mt-5">
+      <span class="search_copy mt-3 mx-auto">Search <span class="search_key"> <%= @query.capitalize %></span></span>
+    </div>
+    <% @search_data['results'].each do |movie| %>
+    <div class="col-sm-12">
       <div class="search_container mx-auto shadow p-3 mb-5 bg-white">
 
         <div class="left">
-          <!-- Fullfills: -->
-          <!-- 1. Has movie title 2. Backdrop is nil 3. Poster is nil -->
-          <% if movie["media_type"] = "movie" %>
-            <% if movie['poster_path'].nil? %>
-              <img src="http://image.tmdb.org/t/p/w300<%= movie['backdrop_path'] %>"/>
+          <!-- Show image for Person -->
+          <% if !movie['known_for'].nil? %>
+          <a href="https://www.themoviedb.org/movie/<%= movie['id'] %>">
+            <% if movie['known_for'][0]['poster_path'].nil? %>
+              <img src="http://image.tmdb.org/t/p/w300<%= movie['known_for'][0]['backdrop_path'] %>"/>
             <% else %>
-              <img src="http://image.tmdb.org/t/p/w154<%= movie['poster_path'] %>"/>
+              <img src="http://image.tmdb.org/t/p/w342<%= movie['known_for'][0]['poster_path'] %>"/>
             <% end %>
-          <% end %>
-          <% if movie["media_type"] = "name" %>
-
-              <img src="http://image.tmdb.org/t/p/w154<%= movie['poster_path'] %>"/>
-
+          </a>
           <% end %>
 
-
+          <!-- Show image for Movie -->
+            <% if (movie['poster_path']) || (movie['backdrop_path']) %>
+              <% if movie['poster_path'].nil? %>
+                <%= movie['media_type']%>
+                <img src="http://image.tmdb.org/t/p/w300<%= movie['backdrop_path'] %>"/>
+              <% else %>
+                <img src="http://image.tmdb.org/t/p/w342<%= movie['poster_path'] %>"/>
+              <% end %>
+            <% end %>
         </div><!--/left-->
 
-        <div class="right pl-1">
+        <div class="right">
           <div class="top">
-            <% if movie['title'].nil? %>
-              <span class="search_title font-weight-bold"><%= movie['name'] %></span><br>
-              <span class="search_title font-weight-bold">Known For:<%= movie['known_for'] %></span>
-            <% else %>
-              <span class="search_title font-weight-bold"><%= movie['title'] %></span>
+            <% if movie['media_type'] = 'person' %>
+                <%= movie['name'] %>
             <% end %>
-            <br>
-            <span class="search_rel_date"><%= movie['release_date'] %></span>
-            <br>
-            <span class="search_md_type">Media Type: <%= movie['media_type'].capitalize %></span>
-            <br>
-            <span class="search_vt_avg">Vote Average: <%= movie['vote_average'] %></span>
+            <% if movie['media_type'] = 'movie' %>
+                <%= movie['title'] %>
+            <% end %>
           </div><!--/top-->
+
           <div class="bottom">
-            <%= movie['overview'] %>
+            <span class="media_type_style"><%= movie['media_type'].capitalize %></span>
+            <br>
+            <!-- Fetch the "original" overview -->
+            <% if !movie['overview'].nil? %>
+                <%= movie['overview'] %>
+            <% end %>
+
+            <!-- Fetch the first overview if they are known-for something -->
+            <% if !movie['known_for'].nil? %>
+              <%= movie['known_for'][0]['overview'] %>
+            <% end %>
           </div><!--/bottom-->
         </div><!--/right-->
 
       </div><!--/search_container-->
-    </div><!--/col-sm-3-->
-  <% end %>
-
-</div><!--/row-->
+    </div><!--/col-sm-4-->
+    <% end %>
+  </div><!--/ id: search_page -->
+</div><!--/ row -->

@@ -5,6 +5,9 @@
   </div>
   <div class="col-sm-8 img_wrap">
     <img class="ft-img" src="http://image.tmdb.org/t/p/w780<%= @popular_movies[0]["backdrop_path"] %>"/>
-    <span class="title"><%= @popular_movies[0]['title'] %></span>
+    <span class="hero_cover">
+      <%= @popular_movies[0]['title'] %>
+      <span class="italic">Release Date:<br><%= @popular_movies[0]['release_date'] %></span>
+    </span>
   </div>
 </div>

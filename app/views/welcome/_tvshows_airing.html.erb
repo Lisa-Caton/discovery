@@ -1,0 +1,45 @@
+<div class="ft1 tv_show_air_today">
+    <div class="row align-items-start">
+      <div class="col-12">
+        <h4>Airing Today | TV Shows</h4>
+      </div>
+    </div>
+    <div class="row ft-row">
+      <div class="col-sm-3 img_wrap">
+        <a href="https://www.themoviedb.org/tv/<%= @tv_show_air_today[0]['id'] %>">
+          <img src="http://image.tmdb.org/t/p/w154<%= @tv_show_air_today[0]["poster_path"] %>"/>
+          <span class="title_cover">
+            <%= @tv_show_air_today[0]['name'] %>
+              <span class="italic">First Air Date:<br><%= @tv_show_air_today[0]['first_air_date'] %></span>
+          </span>
+        </a>
+      </div>
+      <div class="col-sm-3 img_wrap">
+        <a href="https://www.themoviedb.org/tv/<%= @tv_show_air_today[1]['id'] %>">
+          <img src="http://image.tmdb.org/t/p/w154<%= @tv_show_air_today[1]["poster_path"] %>"/>
+          <span class="title_cover">
+            <%= @tv_show_air_today[1]['name'] %>
+              <span class="italic">First Air Date:<br><%= @tv_show_air_today[1]['first_air_date'] %></span>
+          </span>
+        </a>
+      </div>
+      <div class="col-sm-3 img_wrap">
+        <a href="https://www.themoviedb.org/tv/<%= @tv_show_air_today[2]['id'] %>">
+          <img src="http://image.tmdb.org/t/p/w154<%= @tv_show_air_today[2]["poster_path"] %>"/>
+          <span class="title_cover">
+            <%= @tv_show_air_today[2]['name'] %>
+              <span class="italic">First Air Date:<br><%= @tv_show_air_today[2]['first_air_date'] %></span>
+          </span>
+        </a>
+      </div>
+      <div class="col-sm-3 img_wrap">
+        <a href="https://www.themoviedb.org/tv/<%= @tv_show_air_today[3]['id'] %>">
+          <img src="http://image.tmdb.org/t/p/w154<%= @tv_show_air_today[3]["poster_path"] %>"/>
+          <span class="title_cover">
+            <%= @tv_show_air_today[3]['name'] %>
+              <span class="italic">First Air Date:<br><%= @tv_show_air_today[3]['first_air_date'] %></span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
