@@ -25,7 +25,8 @@ class WelcomeController < ApplicationController
     # Everything (Multi) | Search
     @query = params[:search_this_item].downcase
     if @query == "!"
-      flash[:alert] = "No"
+      flash[:notice] = "No"
+
     end
     response = Excon.get("https://api.themoviedb.org/3/search/multi?api_key=#{api_key}&language=en-US&query=#{@query}")
     @search_data = JSON.parse(response.body)['results']
