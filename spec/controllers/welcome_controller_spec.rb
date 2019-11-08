@@ -45,34 +45,5 @@ RSpec.describe WelcomeController, type: :controller do
         expect(response).to render_template(partial: '_tvshows_popular')
       end
     end
-
-    context 'each partial will send a GET response for their own API' do
-      it 'should render a response for tv shows airing today' do
-      end
-
-      it 'should render a response for trending people' do
-      end
-
-      it 'should render a response for popular tv shows' do
-      end
-
-      it 'should render a response for popular movies' do
-      end
-
-  end
-
-  describe 'welcome#search' do
-    it 'should route to the search' do
-      get :search
-      expect(response).to render_template(:search)
-    end
-
-    it 'should route to the search' do
-      connection = Excon.new("https://api.themoviedb.org/3/search/multi?api_key=#{api_key}&language=en-US&query=#{query}", :mock => true)
-      get :search
-      Excon.stub({}, {:status => 200})
-      expect(search_path).to eq "https://api.themoviedb.org/3/search/multi?api_key=#{api_key}&language=en-US&query=#{query}"
-    end
-
   end
 end
