@@ -1,57 +1,102 @@
 <div class="row">
   <div id="search_page" class="shadow">
     <div class="search_param m-3 mt-5">
+      <span class="back">
+        <%= link_to "Back",  controller: "welcome" %>
+      </span>
       <span class="search_copy mt-3 mx-auto">Search <span class="search_key"> <%= @query.capitalize %></span></span>
     </div>
-    <% @search_data['results'].each do |movie| %>
+    <% @search_data.each do |item| %>
     <div class="col-sm-12">
       <div class="search_container mx-auto shadow p-3 mb-5 bg-white">
-
         <div class="left">
-          <!-- Show image for Person -->
-          <% if !movie['known_for'].nil? %>
-          <a href="https://www.themoviedb.org/movie/<%= movie['id'] %>">
-            <% if movie['known_for'][0]['poster_path'].nil? %>
-              <img src="http://image.tmdb.org/t/p/w300<%= movie['known_for'][0]['backdrop_path'] %>"/>
-            <% else %>
-              <img src="http://image.tmdb.org/t/p/w342<%= movie['known_for'][0]['poster_path'] %>"/>
-            <% end %>
-          </a>
-          <% end %>
 
           <!-- Show image for Movie -->
-            <% if (movie['poster_path']) || (movie['backdrop_path']) %>
-              <% if movie['poster_path'].nil? %>
-                <%= movie['media_type']%>
-                <img src="http://image.tmdb.org/t/p/w300<%= movie['backdrop_path'] %>"/>
+          <% if item['media_type'] == 'movie' %>
+            <% if (item['poster_path']) || (item['backdrop_path']) %>
+              <% if item['backdrop_path'].nil? %>
+                <a href="https://www.themoviedb.org/movie/<%= item['id'] %>">
+                  <img class="movie_poster" alt="<%= item['title'] %>" src="http://image.tmdb.org/t/p/w342<%= item['poster_path'] %>"/>
+                </a>
               <% else %>
-                <img src="http://image.tmdb.org/t/p/w342<%= movie['poster_path'] %>"/>
+                <a href="https://www.themoviedb.org/movie/<%= item['id'] %>">
+                  <img alt="<%= item['title'] %>" src="http://image.tmdb.org/t/p/w300<%= item['backdrop_path'] %>"/>
+                </a>
               <% end %>
             <% end %>
+          <% end %>
+
+          <!-- Show image for Person -->
+          <% if item['media_type'] == 'person' %>
+            <% if item['backdrop_path'].nil? %>
+              <a href="https://www.themoviedb.org/person/<%= item['id'] %>">
+                <img class="person_poster" alt="<%= item['name'] %>" src="http://image.tmdb.org/t/p/w342<%= item['known_for'][0]['poster_path'] %>"/>
+              </a>
+            <% else %>
+              <a href="https://www.themoviedb.org/person/<%= item['id'] %>">
+                <img alt="<%= item['name'] %>" src="http://image.tmdb.org/t/p/w300<%= item['known_for'][0]['backdrop_path'] %>"/>
+              </a>
+            <% end %>
+          <% end %>
+
+          <!-- Show image for TV Show -->
+          <% if item['media_type'] == 'tv' %>
+            <% if (item['poster_path']) || (item['backdrop_path']) %>
+              <% if item['backdrop_path'].nil? %>
+                <a href="https://www.themoviedb.org/tv/<%= item['id'] %>">
+                  <img class="tv_poster" alt="<%= item['name'] %>" src="http://image.tmdb.org/t/p/w342<%= item['poster_path'] %>"/>
+                </a>
+                <% else %>
+                  <a href="https://www.themoviedb.org/tv/<%= item['id'] %>">
+                    <img alt="<%= item['name'] %>" src="http://image.tmdb.org/t/p/w300<%= item['backdrop_path'] %>"/>
+                  </a>
+              <% end %>
+            <% end %>
+          <% end %>
+
         </div><!--/left-->
 
         <div class="right">
           <div class="top">
-            <% if movie['media_type'] = 'person' %>
-                <%= movie['name'] %>
+
+            <!-- Show image for Movie -->
+            <% if item['media_type'] == 'movie' %>
+              <%= item['title'] %>
             <% end %>
-            <% if movie['media_type'] = 'movie' %>
-                <%= movie['title'] %>
+
+          <!-- Show image for Person -->
+            <% if item['media_type'] == 'person' %>
+              <%= item['name'] %>
+              <br>
+              <span class="known_for">
+                <%= item['name'] %> |
+                <%= item['known_for_department'] %><br>
+                Known for: <%= item['known_for'][0]['name'] %>
+              </span>
             <% end %>
+
+          <!-- Show image for TV Show -->
+          <% if item['media_type'] == 'tv' %>
+            <%= item['name'] %>
+          <% end %>
+
+
           </div><!--/top-->
 
           <div class="bottom">
-            <span class="media_type_style"><%= movie['media_type'].capitalize %></span>
+            <span class="media_type_style"><%= item['media_type'].capitalize %></span>
             <br>
-            <!-- Fetch the "original" overview -->
-            <% if !movie['overview'].nil? %>
-                <%= movie['overview'] %>
+
+            <!-- Fetch the "original" overview (Movies + TV) -->
+            <% if !item['overview'].nil? %>
+                <%= item['overview'] %>
             <% end %>
 
-            <!-- Fetch the first overview if they are known-for something -->
-            <% if !movie['known_for'].nil? %>
-              <%= movie['known_for'][0]['overview'] %>
+            <!-- Fetch the first overview if they are known-for something (Person) -->
+            <% if !item['known_for'].nil? %>
+              <%= item['known_for'][0]['overview'] %>
             <% end %>
+
           </div><!--/bottom-->
         </div><!--/right-->
 
