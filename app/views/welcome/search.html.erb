@@ -4,7 +4,11 @@
       <span class="back">
         <%= link_to "Back",  controller: "welcome" %>
       </span>
-      <span class="search_copy mt-3 mx-auto">Search <span class="search_key"> <%= @query.capitalize %></span></span>
+      <span class="search_copy mt-3 mx-auto">Search
+        <span class="search_key">
+            <%= @query.capitalize %>
+        </span>
+      </span>
     </div>
     <% @search_data.each do |item| %>
     <div class="col-sm-12">
