@@ -3,6 +3,8 @@ require 'excon'
 require 'json'
 
 class WelcomeController < ApplicationController
+    before_action :param_policy, only: [:search]
+
   def index
     # Get Airing Today: TV Show
     response = Excon.get("https://api.themoviedb.org/3/tv/airing_today?api_key=#{api_key}&language=en-US&page=1")
@@ -24,10 +26,7 @@ class WelcomeController < ApplicationController
   def search
     # Everything (Multi) | Search
     @query = params[:search_this_item].downcase
-    if @query == "!"
-      flash[:notice] = "No"
-
-    end
+    param_policy
     response = Excon.get("https://api.themoviedb.org/3/search/multi?api_key=#{api_key}&language=en-US&query=#{@query}")
     @search_data = JSON.parse(response.body)['results']
   end
@@ -36,6 +35,18 @@ class WelcomeController < ApplicationController
   private
   def api_key
     ENV['the_moviedb_api_key']
+  end
+
+  def param_policy
+    # special = "?<>',?[]}{=-)(!@*&^%$\#\`~{}"
+    # regex = /[#{special.gsub(/./){|char| "\\#{char}"}}]/
+    # if @query =~ regex
+    #   flash[:notice] = "Please try again, and remove special characters."
+    # end
+    expression = /^[a-zA-Z0-9]*$/
+    if @query =~ !expression
+      flash[:notice] = "Please try again, and remove special characters."
+    end
   end
 
 

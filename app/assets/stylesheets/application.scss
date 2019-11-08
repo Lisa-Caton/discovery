@@ -234,6 +234,14 @@ img,
 #search_page {
   background: #f3f3f3;
   margin: 0 auto;
+  width: 900px;
+
+  .alert {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 90%;
+  }
 
   .search_param {
     display: block;
@@ -264,7 +272,7 @@ img,
   }
 
   .search_container {
-    max-width: 900px;
+    // max-width: 900px;
 
     .search_container img[alt] {
       font-size: 18px;
