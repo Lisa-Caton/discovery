@@ -1,9 +1,11 @@
 require 'rubygems'
 require 'excon'
 require 'json'
+#rubygems allows flash alert to work properly!
 
 class WelcomeController < ApplicationController
-    before_action :param_policy, only: [:search]
+  add_flash_types :success, :warning, :danger, :info
+
 
   def index
     # Get Airing Today: TV Show
@@ -21,12 +23,13 @@ class WelcomeController < ApplicationController
     # Movies | Popular
     response = Excon.get("https://api.themoviedb.org/3/movie/popular?api_key=#{api_key}&language=en-US")
     @popular_movies = JSON.parse(response.body)['results']
+
   end
 
   def search
     # Everything (Multi) | Search
-    @query = params[:search_this_item].downcase
     param_policy
+    @query = params[:search_this_item].downcase
     response = Excon.get("https://api.themoviedb.org/3/search/multi?api_key=#{api_key}&language=en-US&query=#{@query}")
     @search_data = JSON.parse(response.body)['results']
   end
@@ -38,15 +41,16 @@ class WelcomeController < ApplicationController
   end
 
   def param_policy
-    # special = "?<>',?[]}{=-)(!@*&^%$\#\`~{}"
-    # regex = /[#{special.gsub(/./){|char| "\\#{char}"}}]/
-    # if @query =~ regex
+    special = "?<>',?[]}{=-)(!@*&^%$#`~{}"
+    regex = /[#{special.gsub(/./){|char| "\\#{char}"}}]/
+    if params[:search_this_item] =~ regex
+      flash[:notice] = "Please try again, and remove special character(s):"
+    end
+    # expression = /^[a-zA-Z0-9\S]*$/
+    # if @query =~ !expression
     #   flash[:notice] = "Please try again, and remove special characters."
     # end
-    expression = /^[a-zA-Z0-9]*$/
-    if @query =~ !expression
-      flash[:notice] = "Please try again, and remove special characters."
-    end
+
   end
 
 
