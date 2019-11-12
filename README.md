@@ -10,12 +10,11 @@
 ## Get Details
 For example: **Airing Today | TV Shows**
 
-/tv/airing_today
-
+/tv/airing_today<br>
 Get the primary TV show details by id.
 
-api_key   string    **required**
-language  string    optional
+api_key   string    **required**<br>
+language  string    optional<br>
 page      integer   optional
 
 ```
