@@ -11,11 +11,11 @@
 For example: **Airing Today | TV Shows**
 
 /tv/airing_today<br>
-Get the primary TV show details by id.
+>Get the primary TV show details by id.
 
-api_key   string    **required**<br>
-language  string    optional<br>
-page      integer   optional
+| api_key   | string    | **required** |
+| language  | string    | optional     |
+| page      | integer   | optional     |
 
 ```
 https://api.themoviedb.org/3/tv/airing_today?api_key=<<api_key>>&language=en-US&page=1
