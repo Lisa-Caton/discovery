@@ -10,12 +10,14 @@
 ## Get Details
 For example: the entire row of **Airing Today | TV Shows**:
 
-/tv/{tv_id}
+/tv/airing_today
 _Get the primary TV show details by id._
-tv_id     integer   **required**
 api_key   string    **required**
+language  string    optional
+page      integer   optional
+
 ```
-https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US
+https://api.themoviedb.org/3/tv/airing_today?api_key=<<api_key>>&language=en-US&page=1
 ```
 
 ## Dependencies
@@ -29,3 +31,16 @@ https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US
    Command Line: 'rails s'
 + Open a browser window to: http://localhost:3000/
 + Click, Hover -or Search for any person, title, movie -or show! =]
+
+## Version 0.1
++ This application is ran by (1) forking the project, (2) using the rails server, and (3) open a browser to view
++ This project will be uploaded to a web host.
++ The **goal** is to further improve upon the features within the App.
+
+## Releases
++ version 0.1 - self maintaining application
+
+## Relative links
+[License for this project](docs/License.md)
+
+[Code of Conduct for this project](docs/Code_of_Conduct.md)
