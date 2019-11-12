@@ -14,7 +14,9 @@ For example: **Airing Today | TV Shows**
 >Get the primary TV show details by id.
 
 | api_key   | string    | **required** |
+| --------- | --------- | ------------ |
 | language  | string    | optional     |
+| --------- | --------- | ------------ |
 | page      | integer   | optional     |
 
 ```
