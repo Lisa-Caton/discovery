@@ -13,11 +13,23 @@ For example: **Airing Today | TV Shows**
 /tv/airing_today<br>
 >Get the primary TV show details by id.
 
-| api_key   | string    | **required** |
-| --------- | --------- | ------------ |
-| language  | string    | optional     |
-| --------- | --------- | ------------ |
-| page      | integer   | optional     |
+<table>
+  <tr>
+    <td>api_key</td>
+    <td>string</td>
+    <td>required</td>
+  </tr>
+  <tr>
+    <td>language</td>
+    <td>string</td>
+    <td>optional</td>
+  </tr>
+  <tr>
+    <td>page</td>
+    <td>integer</td>
+    <td>optional</td>
+  </tr>
+</table>
 
 ```
 https://api.themoviedb.org/3/tv/airing_today?api_key=<<api_key>>&language=en-US&page=1
