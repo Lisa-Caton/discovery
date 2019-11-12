@@ -1,7 +1,7 @@
 # Discovery
 Discover popular movies, tv shows, trending actors, and what's airing all thanks to this Discovery application.
 
-<img src="app/assets/images/rdme-screenshot.png" alt="Discovery Application" width="946">
+<img src="app/assets/images/rdme-screenshot.png" alt="Discovery Application" width="525">
 
 The Movie Database (TMDB) is the supporting database for all information relating to this project.
 
