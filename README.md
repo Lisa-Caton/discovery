@@ -58,4 +58,4 @@ https://api.themoviedb.org/3/tv/airing_today?api_key=<<api_key>>&language=en-US&
 ## Relative links
 [License for this project](docs/License.md)
 
-[Code of Conduct for this project](docs/Code_of_Conduct.md)
+[Code of Conduct](docs/Code_of_Conduct.md)
