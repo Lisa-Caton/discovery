@@ -8,11 +8,10 @@
 + The Application's controller handles request of the **index** page, the **search** bar, and the _required_ **api key**.
 
 ## Get Details
-For example: the entire row of **Airing Today | TV Shows**:
+For example: **Airing Today | TV Shows**
 
 /tv/airing_today
-
-_Get the primary TV show details by id._
+Get the primary TV show details by id.
 
 api_key   string    **required**
 language  string    optional
