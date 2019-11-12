@@ -11,6 +11,7 @@
 For example: **Airing Today | TV Shows**
 
 /tv/airing_today
+
 Get the primary TV show details by id.
 
 api_key   string    **required**
