@@ -1,0 +1,2 @@
+# Code of Conduct
+People are bound to disagree. Please keep disagreements civil and productive. Contributers are apart of a special commuity, and we all lean on eachother to make our ideas stronger. Support eachother. Don't be mean to one another, and use contructive critizism.
