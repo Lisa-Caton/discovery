@@ -29,7 +29,7 @@ class WelcomeController < ApplicationController
   def search
     # Everything (Multi) | Search
     param_policy
-    @query = params[:search_this_item].downcase
+    @query = params[:search_this_item]
     response = Excon.get("https://api.themoviedb.org/3/search/multi?api_key=#{api_key}&language=en-US&query=#{@query}")
     @search_data = JSON.parse(response.body)['results']
   end
@@ -50,7 +50,10 @@ class WelcomeController < ApplicationController
     # if @query =~ !expression
     #   flash[:notice] = "Please try again, and remove special characters."
     # end
+  end
 
+  def titleize
+    split(/(\W)/).map(&:capitalize).join
   end
 
 

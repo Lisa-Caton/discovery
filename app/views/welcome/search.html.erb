@@ -2,7 +2,7 @@
   <div id="search_page" class="shadow">
     <% if flash[:notice] %>
       <span class="alert alert-danger">
-        <%= flash[:notice] %> <%= @query %>
+        <%= flash[:notice] %> <%= @query.titleize %>
       </span>
     <% end %>
     <div class="search_param m-3 mt-5">
@@ -11,7 +11,7 @@
       </span>
       <span class="search_copy mt-3 mx-auto">Search
         <span class="search_key">
-          <%= @query.capitalize %>
+          <%= @query.titleize %>
         </span>
       </span>
     </div>

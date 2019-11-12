@@ -1,24 +1,61 @@
-# README
+# Discovery
++ The Discovery application allows users to search for all entertainment, and even view what's airing today.
++ The Movie Database is the supporting database for all information relating to this project.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<img src="app/assets/images/screenshot.png" alt="Discovery Application" width="882">
 
-Things you may want to cover:
+## How it works
++ The Application's controller handles request of the **index** page, the **search** bar, and the _required_ **api key**.
 
-* Ruby version
+## Get Details
+For example: **Airing Today | TV Shows**
 
-* System dependencies
+/tv/airing_today<br>
+>Get the primary TV show details by id.
 
-* Configuration
+<table>
+  <tr>
+    <td>api_key</td>
+    <td>string</td>
+    <td>required</td>
+  </tr>
+  <tr>
+    <td>language</td>
+    <td>string</td>
+    <td>optional</td>
+  </tr>
+  <tr>
+    <td>page</td>
+    <td>integer</td>
+    <td>optional</td>
+  </tr>
+</table>
 
-* Database creation
+```
+https://api.themoviedb.org/3/tv/airing_today?api_key=<<api_key>>&language=en-US&page=1
+```
 
-* Database initialization
+## Dependencies
++ The application runs on Rails 5.2.3
 
-* How to run the test suite
+## Installation
++ Fork Project
++ Open terminal
++ Locate the directory
++ Run application by starting the rails server.
+   Command Line: 'rails s'
++ Open a browser window to: http://localhost:3000/
++ Click, Hover -or Search for any person, title, movie -or show! =]
 
-* Services (job queues, cache servers, search engines, etc.)
+## Version 0.1
++ This application is ran by (1) forking the project, (2) using the rails server, and (3) open a browser to view
++ This project will be uploaded to a web host.
++ The **goal** is to further improve upon the features within the App.
 
-* Deployment instructions
+## Releases
++ version 0.1 - self maintaining application
 
-* ...
+## Relative links
+[License for this project](docs/License.md)
+
+[Code of Conduct](docs/Code_of_Conduct.md)
