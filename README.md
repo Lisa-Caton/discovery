@@ -11,7 +11,9 @@
 For example: the entire row of **Airing Today | TV Shows**:
 
 /tv/airing_today
+
 _Get the primary TV show details by id._
+
 api_key   string    **required**
 language  string    optional
 page      integer   optional
