@@ -60,4 +60,4 @@ https://api.themoviedb.org/3/tv/airing_today?api_key=<<api_key>>&language=en-US&
 
 [Code of Conduct](docs/Code_of_Conduct.md)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/577d27ba-cac2-441a-bad2-d1538fcf8fa8/deploy-status)](https://app.netlify.com/sites/discovery-more/deploys)
+[Heroku](https://stormy-dusk-88234.herokuapp.com/)
