@@ -4,10 +4,12 @@
     <h2>Discover all your entertainment needs right here. Discovery lets you search & find movies, tv shows, and actors. </h2>
   </div>
   <div class="col-sm-8 img_wrap">
-    <img class="ft-img" src="http://image.tmdb.org/t/p/w780<%= @popular_movies[0]["backdrop_path"] %>"/>
-    <span class="hero_cover">
-      <%= @popular_movies[0]['title'] %>
-      <span class="italic">Release Date:<br><%= @popular_movies[0]['release_date'] %></span>
-    </span>
+    <a href="https://www.themoviedb.org/movie/<%= @popular_movies[0]['id'] %>">
+      <img class="ft-img" src="http://image.tmdb.org/t/p/w780<%= @popular_movies[0]["backdrop_path"] %>"/>
+      <span class="hero_cover">
+        <%= @popular_movies[0]['title'] %>
+        <span class="italic">Release Date:<br><%= @popular_movies[0]['release_date'] %></span>
+      </span>
+    </a>
   </div>
 </div>
